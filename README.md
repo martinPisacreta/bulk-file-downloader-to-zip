@@ -72,13 +72,13 @@ If you set a maximum cost per run, the Actor works out how many files that cover
 ## What can you do with it?
 
 ### Package reference documents
-Download a list of public file URLs into one ZIP archive. These illustrative URLs come from the local README and mocked tests; replace them with public files you have permission to download. They do not demonstrate successful public downloads.
+Download a list of public file URLs into one ZIP archive. Replace the example URLs with public files you have permission to download.
 
 ```json
 {
   "urls": [
-    "https://example.com/report.pdf",
-    "https://example.com/image/png"
+    "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    "https://www.rfc-editor.org/rfc/rfc2606.txt"
   ],
   "zipFileName": "reference-documents.zip"
 }
