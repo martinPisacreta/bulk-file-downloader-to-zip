@@ -1,0 +1,18 @@
+{
+  "actorSpecification": 1,
+  "name": "bulk-file-downloader-to-zip",
+  "title": "Bulk File Downloader to ZIP",
+  "description": "Download a list of file URLs into one ZIP archive, with a report row per URL. Clean file names, per-file errors, no proxies. Pay per file.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "usesStandbyMode": false,
+  "defaultMemoryMbytes": 2048,
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 4096,
+  "dockerfile": "./Dockerfile",
+  "readme": "../README.md",
+  "input": "./input_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  }
+}

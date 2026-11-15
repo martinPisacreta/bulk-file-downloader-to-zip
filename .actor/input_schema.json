@@ -1,0 +1,61 @@
+{
+  "title": "Bulk File Downloader to ZIP input",
+  "description": "Choose public file URLs and download limits. Repeated URLs share one download and one ZIP entry.",
+  "type": "object",
+  "schemaVersion": 1,
+  "required": ["urls"],
+  "properties": {
+    "urls": {
+      "title": "File URLs",
+      "description": "Between 1 and 1000 public HTTP or HTTPS file URLs. Private destinations are rejected. The runtime also accepts objects containing a url string.",
+      "type": "array",
+      "editor": "stringList",
+      "minItems": 1,
+      "maxItems": 1000,
+      "items": {
+        "title": "File URL",
+        "description": "Public HTTP or HTTPS URL of a file to download.",
+        "type": "string",
+        "editor": "textfield",
+        "minLength": 1
+      },
+      "prefill": [
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "https://www.rfc-editor.org/rfc/rfc2606.txt"
+      ]
+    },
+    "zipFileName": {
+      "title": "ZIP filename",
+      "description": "Archive filename and key in the default key-value store. Use letters, numbers, dots, hyphens or underscores and end with .zip.",
+      "type": "string",
+      "editor": "textfield",
+      "pattern": "^[A-Za-z0-9._-]+[.]zip$",
+      "default": "files.zip"
+    },
+    "prefixIndex": {
+      "title": "Prefix filenames with an index",
+      "description": "Add a padded sequential index before each archived filename.",
+      "type": "boolean",
+      "editor": "checkbox",
+      "default": false
+    },
+    "maxFileMegabytes": {
+      "title": "Maximum file size in megabytes",
+      "description": "Maximum size of each downloaded file, using 1000000 bytes per megabyte. Oversized files produce report errors.",
+      "type": "number",
+      "editor": "number",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 50
+    },
+    "concurrency": {
+      "title": "Concurrent downloads",
+      "description": "Maximum number of downloads started together. Lower this value when downloading large files.",
+      "type": "integer",
+      "editor": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "default": 4
+    }
+  }
+}

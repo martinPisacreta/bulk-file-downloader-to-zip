@@ -1,0 +1,26 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "type": "object",
+    "properties": {
+      "index": {"type": "integer", "description": "Zero-based position in the original input list."},
+      "url": {"type": "string", "description": "Requested URL. Repeated inputs retain separate report rows."},
+      "ok": {"type": "boolean", "description": "Whether this input refers to a file included in the ZIP."},
+      "fileName": {"type": ["string", "null"], "description": "Filename inside the ZIP, or null when no file was included."},
+      "bytes": {"type": "integer", "description": "Uncompressed file size in bytes. Duplicate successful rows refer to the same archive entry."},
+      "contentType": {"type": ["string", "null"], "description": "Response Content-Type when available."},
+      "status": {"type": ["integer", "null"], "description": "HTTP response status when available."},
+      "error": {"type": ["string", "null"], "description": "Failure reason, including Skipped: spending limit reached for URLs excluded before downloading."},
+      "durationMs": {"type": "integer", "description": "Download duration in milliseconds; zero for spending-limit skips."}
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Download report",
+      "transformation": {
+        "fields": ["index", "url", "ok", "fileName", "bytes", "contentType", "status", "error", "durationMs"]
+      },
+      "display": {"component": "table"}
+    }
+  }
+}
