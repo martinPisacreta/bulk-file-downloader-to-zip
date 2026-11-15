@@ -1,0 +1,25 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Bulk File Downloader to ZIP output",
+  "description": "The ZIP archive in the key-value store, a report row per input URL in the dataset, and a run summary with the direct archive link.",
+  "properties": {
+    "zip": {
+      "type": "string",
+      "title": "ZIP archive",
+      "description": "Archive saved under the default name files.zip. If you set another zipFileName, use the zipUrl in the run summary.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/files.zip"
+    },
+    "report": {
+      "type": "string",
+      "title": "Download report",
+      "description": "One row per input URL with file name, size, HTTP status and error.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "OUTPUT record with zipKey, zipUrl and totals (requested, downloaded, failed, bytes).",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+    }
+  }
+}
